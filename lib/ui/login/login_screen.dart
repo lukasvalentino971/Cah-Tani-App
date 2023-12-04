@@ -9,7 +9,7 @@ import 'package:cah_tani/widgets/custom_input.dart';
 class LoginScreen extends StatefulWidget {
   static const String routeName = '/login-screen';
 
-  const LoginScreen({super.key});
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -25,107 +25,109 @@ class _LoginScreenState extends State<LoginScreen> {
       resizeToAvoidBottomInset: false,
       backgroundColor: backgroundColor,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Selamat Datang Kembali",
-                    style: GoogleFonts.poppins(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: blackColor),
-                  ),
-                  Text(
-                    "Silahkan login dengan memasukkan username dan password kamu.",
-                    style: GoogleFonts.poppins(fontSize: 13, color: grayColor),
-                  ),
-                  const SizedBox(
-                    height: 24,
-                  ),
-                  CustomInput(
-                    controller: cUsername,
-                    hint: "Username",
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  CustomInput(
-                    controller: cPassword,
-                    hint: "Kata Sandi",
-                    isObscure: true,
-                    isPassword: true,
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      "Lupa kata sandi?",
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Selamat Datang Kembali",
                       style: GoogleFonts.poppins(
-                          color: primaryColor, fontSize: 13),
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: blackColor),
                     ),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () => Navigation.replaceNamed(
-                          routeName: HomeScreen.routeName),
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 20),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        backgroundColor: primaryColor,
-                      ),
+                    Text(
+                      "Silahkan login dengan memasukkan username dan password kamu.",
+                      style:
+                          GoogleFonts.poppins(fontSize: 13, color: grayColor),
+                    ),
+                    const SizedBox(
+                      height: 24,
+                    ),
+                    CustomInput(
+                      controller: cUsername,
+                      hint: "Username",
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    CustomInput(
+                      controller: cPassword,
+                      hint: "Kata Sandi",
+                      isObscure: true,
+                      isPassword: true,
+                    ),
+                    Align(
+                      alignment: Alignment.centerRight,
                       child: Text(
-                        "Masuk",
+                        "Lupa kata sandi?",
                         style: GoogleFonts.poppins(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                          color: whiteColor,
+                            color: primaryColor, fontSize: 13),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () => Navigation.replaceNamed(
+                            routeName: HomeScreen.routeName),
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 20),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          backgroundColor: primaryColor,
+                        ),
+                        child: Text(
+                          "Masuk",
+                          style: GoogleFonts.poppins(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                            color: whiteColor,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 18,
-                  ),
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigation.toNamed(routeName: RegisterScreen.routeName);
-                      },
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 20),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          side: const BorderSide(color: primaryColor, width: 1),
+                    const SizedBox(
+                      width: 18,
+                    ),
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigation.toNamed(
+                              routeName: RegisterScreen.routeName);
+                        },
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 20),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            side:
+                                const BorderSide(color: primaryColor, width: 1),
+                          ),
+                          backgroundColor: backgroundColor,
+                          elevation: 0,
                         ),
-                        backgroundColor: backgroundColor,
-                        elevation: 0,
-                      ),
-                      child: Text(
-                        "Daftar",
-                        style: GoogleFonts.poppins(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                          color: primaryColor,
+                        child: Text(
+                          "Daftar",
+                          style: GoogleFonts.poppins(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                            color: primaryColor,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              )
-            ],
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),
