@@ -1,4 +1,6 @@
-# Cah Tani App Using Flutter
+# Cah Tani App
+
+<img src="assets/images/1.jpeg">
 
 Cah Tani is designed as a platform aimed at facilitating communication between the government and farmers. This application offers various outstanding features, including agricultural consultations, market price checks, weather monitoring, and reporting.
 
